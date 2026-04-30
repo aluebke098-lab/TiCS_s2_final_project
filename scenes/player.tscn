@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cclfpa5dn5bsy"]
 
-[ext_resource type="Texture2D" uid="uid://dbpcad108o8bt" path="res://assets/Screenshot 2026-04-24 083457.png" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://3y8qprdg1vet" path="res://assets/marshio_sprite.png" id="1_3vyb7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{
@@ -9,20 +9,21 @@ animations = [{
 "texture": ExtResource("1_3vyb7")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
-size = Vector2(208, 196)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 28.0
+height = 74.0
 
 [node name="Player" type="CharacterBody2D" unique_id=175795685]
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1950307064]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_g2els")
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=554406159]
-position = Vector2(-3, 12)
-shape = SubResource("RectangleShape2D_3vyb7")
+position = Vector2(-4, 7)
+shape = SubResource("CapsuleShape2D_g2els")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbpcad108o8bt"
-path="res://.godot/imported/Screenshot 2026-04-24 083457.png-bc2df397fe047f22e59e23f955bda71e.ctex"
+uid="uid://3y8qprdg1vet"
+path="res://.godot/imported/marshio_sprite.png-52342dc0149a6a6893a7172a533817fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Screenshot 2026-04-24 083457.png"
-dest_files=["res://.godot/imported/Screenshot 2026-04-24 083457.png-bc2df397fe047f22e59e23f955bda71e.ctex"]
+source_file="res://assets/marshio_sprite.png"
+dest_files=["res://.godot/imported/marshio_sprite.png-52342dc0149a6a6893a7172a533817fb.ctex"]
 
 [params]
 
