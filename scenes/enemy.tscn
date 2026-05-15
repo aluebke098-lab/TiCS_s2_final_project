@@ -7,39 +7,31 @@
 size = Vector2(20, 2)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epg4t"]
-radius = 14.0
+radius = 17.0
+height = 34.0
 
 [node name="enemy" type="CharacterBody2D" unique_id=695450362]
 script = ExtResource("1_md0e3")
 
 [node name="ground_collision" type="CollisionShape2D" parent="." unique_id=1295407624]
-position = Vector2(0, 13)
+position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_iifgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1560656616]
 texture = ExtResource("2_4ra3w")
 
-[node name="left_floor_ray" type="RayCast2D" parent="." unique_id=729300901]
-position = Vector2(-13, 13)
-target_position = Vector2(0, 5)
-hit_from_inside = true
-
-[node name="right_floor_ray" type="RayCast2D" parent="." unique_id=1888739598]
-position = Vector2(13, 13)
-target_position = Vector2(0, 5)
-hit_from_inside = true
-
 [node name="left_wall_ray" type="RayCast2D" parent="." unique_id=706776229]
-position = Vector2(-13, 5)
+position = Vector2(-17, 5)
 target_position = Vector2(-2, 0)
 
 [node name="right_wall_ray" type="RayCast2D" parent="." unique_id=61739680]
-position = Vector2(13, 5)
+position = Vector2(17, 5)
 target_position = Vector2(2, 0)
 
 [node name="body_collision" type="Area2D" parent="." unique_id=1097140886]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body_collision" unique_id=336320042]
+position = Vector2(-1, 2)
 shape = SubResource("CapsuleShape2D_epg4t")
 
 [connection signal="body_entered" from="body_collision" to="." method="_on_area_2d_body_entered"]
