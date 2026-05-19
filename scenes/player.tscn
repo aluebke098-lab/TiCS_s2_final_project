@@ -13,9 +13,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
-radius = 28.0
-height = 74.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
+size = Vector2(56, 67)
 
 [node name="Player" type="CharacterBody2D" unique_id=175795685]
 metadata/_edit_group_ = true
@@ -25,5 +24,5 @@ sprite_frames = SubResource("SpriteFrames_g2els")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=554406159]
-position = Vector2(-4, 7)
-shape = SubResource("CapsuleShape2D_g2els")
+position = Vector2(-4, 9.5)
+shape = SubResource("RectangleShape2D_3vyb7")

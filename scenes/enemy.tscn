@@ -4,13 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://dv8pfahd0q4xx" path="res://assets/shroom_sprite.png" id="2_4ra3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
-size = Vector2(20, 2)
+size = Vector2(32, 2)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_epg4t"]
-radius = 17.0
-height = 34.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
+size = Vector2(34, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 16.0
 
 [node name="enemy" type="CharacterBody2D" unique_id=695450362]
+collision_layer = 2
 script = ExtResource("1_md0e3")
 
 [node name="ground_collision" type="CollisionShape2D" parent="." unique_id=1295407624]
@@ -18,20 +21,36 @@ position = Vector2(0, 18)
 shape = SubResource("RectangleShape2D_iifgy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1560656616]
+position = Vector2(1, 0)
 texture = ExtResource("2_4ra3w")
 
 [node name="left_wall_ray" type="RayCast2D" parent="." unique_id=706776229]
 position = Vector2(-17, 5)
+scale = Vector2(0.972, 14)
 target_position = Vector2(-2, 0)
 
 [node name="right_wall_ray" type="RayCast2D" parent="." unique_id=61739680]
 position = Vector2(17, 5)
+scale = Vector2(1.009, 14)
 target_position = Vector2(2, 0)
 
 [node name="body_collision" type="Area2D" parent="." unique_id=1097140886]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="body_collision" unique_id=336320042]
-position = Vector2(-1, 2)
-shape = SubResource("CapsuleShape2D_epg4t")
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_md0e3")
 
-[connection signal="body_entered" from="body_collision" to="." method="_on_area_2d_body_entered"]
+[node name="death_collision" type="Area2D" parent="." unique_id=13284988]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_collision" unique_id=1670743815]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=378166560]
+rect = Rect2(-22, -22, 45, 45)
+
+[connection signal="body_entered" from="body_collision" to="." method="_on_body_collision_body_entered"]
+[connection signal="body_entered" from="death_collision" to="." method="_on_death_collision_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
