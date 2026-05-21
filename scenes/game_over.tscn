@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dvvlfhyw2ymky"]
+
+[ext_resource type="Script" uid="uid://b2spq54qbc3as" path="res://scripts/game_over.gd" id="1_xeevv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqhvx"]
+font_size = 80
+font_color = Color(1, 0, 0, 0.99215686)
+
+[node name="GameOver" type="Control" unique_id=111500700]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xeevv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1308465926]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=612600128]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 220.0
+offset_right = 869.0
+offset_bottom = 330.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_wqhvx")
+
+[node name="Restart" type="Button" parent="." unique_id=1309179539]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 360.0
+offset_right = 572.0
+offset_bottom = 420.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="." unique_id=1707834435]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 360.0
+offset_right = 862.0
+offset_bottom = 420.0
+text = "Quit Game"
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

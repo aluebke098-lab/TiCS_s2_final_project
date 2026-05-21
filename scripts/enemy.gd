@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_collision_body_entered(body: Node2D) -> void:
 	if body == player_node:
-		get_tree().call_deferred("reload_current_scene")
+		body.hit_player()
 
 func _on_death_collision_body_entered(body: Node2D) -> void:
 	if body == player_node:
