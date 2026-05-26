@@ -8,8 +8,6 @@ var active = false
 @export_range(-1,1) var dir = -1
 
 func _ready() -> void:
-	print(player_node)
-	
 	if dir == 0:
 		dir = -1
 	
@@ -30,12 +28,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, dir * speed, 10.0*delta)
 		velocity.y += gravity #for flying enemies, would remove gravity 
 		move_and_slide()
-
-#func _wait_dir_change(desired_dir):
-	#dir = 0
-	#await get_tree().create_timer(.5).timeout
-	#dir = desired_dir
- 
 
 func _on_body_collision_body_entered(body: Node2D) -> void:
 	if body == player_node:

@@ -27,4 +27,6 @@ func _physics_process(delta: float) -> void:
 
 func hit_player():
 	visible = false
+	get_parent().camera_quick_move()
+	position = Vector2(0,0)
 	get_parent().get_node("GameOver").game_over()

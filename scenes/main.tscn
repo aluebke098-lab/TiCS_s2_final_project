@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://vnhpqrqdijxn"]
 
 [ext_resource type="PackedScene" uid="uid://cclfpa5dn5bsy" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://iat24hytgpku" path="res://scripts/main.gd" id="1_tbgi4"]
 [ext_resource type="Script" uid="uid://dbr8gm5niuyxu" path="res://scripts/player.gd" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dvvlfhyw2ymky" path="res://scenes/game_over.tscn" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cibdr7fikh2c6" path="res://scenes/level_root.tscn" id="4_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=950961408]
+script = ExtResource("1_tbgi4")
 
 [node name="Player" parent="." unique_id=175795685 instance=ExtResource("1_o5qli")]
 position = Vector2(80, 610)
@@ -28,3 +30,4 @@ drag_horizontal_enabled = true
 [node name="LevelRoot" parent="." unique_id=169206346 instance=ExtResource("4_tbgi4")]
 
 [node name="GameOver" parent="." unique_id=111500700 instance=ExtResource("4_jyhfs")]
+visible = false
