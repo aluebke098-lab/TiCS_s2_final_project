@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bg3p7okb6xkpt"]
+
+[ext_resource type="Texture2D" uid="uid://cqa3dpt0g6akk" path="res://assets/goal_sprite.png" id="1_jbojv"]
+[ext_resource type="Script" uid="uid://3hwy5yb12dsq" path="res://scripts/goal.gd" id="1_sx1j4"]
+[ext_resource type="Texture2D" uid="uid://bk0i6nirswmxk" path="res://assets/flag_sprite.png" id="3_w3gav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbojv"]
+size = Vector2(19, 345)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sx1j4"]
+radius = 16.03122
+
+[node name="Goal" type="Node2D" unique_id=977093925]
+script = ExtResource("1_sx1j4")
+
+[node name="pole_goal" type="Area2D" parent="." unique_id=1989683764]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pole_goal" unique_id=1595810883]
+position = Vector2(0, -205.5)
+shape = SubResource("RectangleShape2D_jbojv")
+
+[node name="top_goal" type="Area2D" parent="." unique_id=191970818]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_goal" unique_id=2090422293]
+position = Vector2(0, -394)
+shape = SubResource("CircleShape2D_sx1j4")
+
+[node name="pole" type="Sprite2D" parent="." unique_id=1289689058]
+position = Vector2(0, -200)
+texture = ExtResource("1_jbojv")
+
+[node name="flag" type="Sprite2D" parent="." unique_id=989261606]
+visible = false
+position = Vector2(-94, -90)
+texture = ExtResource("3_w3gav")
+
+[connection signal="body_entered" from="pole_goal" to="." method="_on_pole_goal_entered"]
+[connection signal="body_entered" from="top_goal" to="." method="_on_top_goal_entered"]
