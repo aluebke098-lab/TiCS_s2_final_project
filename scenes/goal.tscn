@@ -30,8 +30,7 @@ position = Vector2(0, -200)
 texture = ExtResource("1_jbojv")
 
 [node name="flag" type="Sprite2D" parent="." unique_id=989261606]
-visible = false
-position = Vector2(-94, -90)
+position = Vector2(-94, -336)
 texture = ExtResource("3_w3gav")
 
 [connection signal="body_entered" from="pole_goal" to="." method="_on_pole_goal_entered"]

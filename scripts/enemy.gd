@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 			dir = -1
 		
 		velocity.x = lerp(velocity.x, dir * speed, 10.0*delta)
-		velocity.y += gravity #for flying enemies, would remove gravity 
+		velocity.y += gravity #would remove gravity for flying enemies
 		move_and_slide()
 
 func _on_body_collision_body_entered(body: Node2D) -> void:

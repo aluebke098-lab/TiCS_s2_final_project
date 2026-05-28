@@ -10,13 +10,19 @@ func _ready() -> void:
 
 func _on_pole_goal_entered(body: Node2D) -> void: #flag end height = where player touched flag?
 	if body == player_node:
-		pass
+		var height = body.position.y
+		victory(height)
 
 func _on_top_goal_entered(body: Node2D) -> void: #flag end height = top
 	if body == player_node:
-		pass
+		victory(-336)
 
-func victory():
+func victory(height):
 	flag.visible = true
-	get_node("pole_goal/CollisionShape2D").disabled = true
-	get_node("top_goal/CollisionShape2D").disabled = true
+	get_node("pole_goal/CollisionShape2D").call_deferred("disabled = true")
+	get_node("top_goal/CollisionShape2D").call_deferred("disabled = true")
+	while flag.position.y < height:
+		flag.position.y -= 10
+		get_tree().create_timer(.5)
+	if flag.position.y > height:
+		flag.position.y = height
