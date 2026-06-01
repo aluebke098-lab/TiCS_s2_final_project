@@ -32,6 +32,10 @@ tile_size = Vector2i(40, 40)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ypoqj")
 
+[sub_resource type="LabelSettings" id="LabelSettings_1vg6f"]
+font_size = 50
+font_color = Color(0.05000007, 1, 0, 1)
+
 [node name="LevelRoot" type="Node2D" unique_id=169206346]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=424676593]
@@ -39,9 +43,19 @@ tile_map_data = PackedByteArray("AAAJABEAAQABAAEAAAATABEAAQABAAEAAAAdABEAAQABAAE
 tile_set = SubResource("TileSet_w3gk0")
 
 [node name="Goal" parent="." unique_id=977093925 instance=ExtResource("3_w3gk0")]
-position = Vector2(7960, 640)
+position = Vector2(7980, 640)
 
 [node name="death_floor" parent="." unique_id=449554565 instance=ExtResource("3_1vg6f")]
+
+[node name="Victory" type="Label" parent="." unique_id=1153083659]
+visible = false
+offset_left = 8118.0
+offset_top = 335.0
+offset_right = 8361.0
+offset_bottom = 476.0
+text = "Congrats !
+You Win !"
+label_settings = SubResource("LabelSettings_1vg6f")
 
 [node name="enemy" parent="." unique_id=695450362 instance=ExtResource("2_ypoqj")]
 position = Vector2(940, 620)

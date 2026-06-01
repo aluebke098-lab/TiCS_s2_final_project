@@ -26,12 +26,14 @@ func _physics_process(delta: float) -> void:
 			dir = -1
 		
 		velocity.x = lerp(velocity.x, dir * speed, 10.0*delta)
-		velocity.y += gravity #would remove gravity for flying enemies
+		velocity.y += gravity 
 		move_and_slide()
 
 func _on_body_collision_body_entered(body: Node2D) -> void:
 	if body == player_node:
 		body.hit_player()
+	elif body == get_parent().get_node("death_floor"):
+		queue_free()
 
 func _on_death_collision_body_entered(body: Node2D) -> void:
 	if body == player_node:
